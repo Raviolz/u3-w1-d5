@@ -1,6 +1,7 @@
 import { Component } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
 
 const movieUrl = "https://www.omdbapi.com/?apikey=ac879cbd"
 
@@ -26,16 +27,29 @@ class MoviesRow extends Component {
 
   render() {
     return (
-      <>
+      <Container fluid className="main-section">
         <h4>{this.props.title}</h4>
-        <Row xs={1} sm={2} md={4} lg={6} className="mb-4">
-          {this.state.movies.map((movie) => (
-            <Col key={movie.imdbID} className="mb-2 text-center px-1">
-              <img className="img-fluid movie-poster" src={movie.Poster} alt="movie picture" />
-            </Col>
-          ))}
-        </Row>
-      </>
+        <div className="row-scroll">
+          <Row xs={1} sm={2} md={4} lg={6} className="mb-4 flex-nowrap g-2">
+            {this.state.movies
+              .filter((movie) => movie.Poster !== "N/A")
+              .map((movie) => (
+                <Col key={movie.imdbID} className="mb-2 px-1">
+                  <Col key={movie.imdbID} className="mb-2 px-1">
+                    <img
+                      className="img-fluid movie-poster"
+                      src={movie.Poster}
+                      alt={movie.Title}
+                      onError={(e) => {
+                        e.currentTarget.closest(".col").style.display = "none" // per immagini 404 non trovate non disponibili
+                      }}
+                    />
+                  </Col>
+                </Col>
+              ))}
+          </Row>
+        </div>
+      </Container>
     )
   }
 }
