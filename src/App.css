@@ -71,10 +71,6 @@ button.footer-button:hover {
   display: block;
 }
 
-.movie-poster:hover {
-  transform: scale(1.08);
-  cursor: pointer;
-}
 .row-scroll {
   overflow-x: auto;
   scrollbar-width: none; /* Firefox */
