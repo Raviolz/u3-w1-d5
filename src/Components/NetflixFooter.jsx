@@ -4,7 +4,7 @@ import Col from "react-bootstrap/Col"
 
 function NetflixFooter() {
   return (
-    <Container fluid className=" text-white mt-5 pt-4 pb-4 netflix-footer">
+    <Container fluid className=" text-white mt-1 pt-1 pb-4 netflix-footer">
       <Row className="justify-content-center mt-5">
         <Col className="col-6">
           <Row className="mb-3">

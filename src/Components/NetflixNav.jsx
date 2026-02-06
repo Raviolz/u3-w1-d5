@@ -23,7 +23,23 @@ function NetflixNav() {
             <i className="bi bi-search mx-2 navicons"></i>
             <span className="fw-bold mx-2">KIDS</span>
             <i className="bi bi-bell mx-2 navicons"></i>
-            <i className="bi bi-person-circle mx-2 navicons"></i>
+            <NavDropdown
+              align="end"
+              id="profile-dropdown"
+              className="profile-dropdown"
+              title={
+                <span className="d-flex align-items-center gap-2">
+                  <img className="profile-avatar" src="/src/assets/avatar.png" alt="profile" />
+                  <i className="bi bi-caret-down-fill profile-caret"></i>
+                </span>
+              }
+            >
+              <NavDropdown.Item href="#profile">Manage Profiles</NavDropdown.Item>
+              <NavDropdown.Item href="#account">Account</NavDropdown.Item>
+
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#signout">Sign out </NavDropdown.Item>
+            </NavDropdown>
           </div>
         </Navbar.Collapse>
       </Container>

@@ -24,18 +24,17 @@ class MoviesRow extends Component {
         console.log("Errore:", err)
       })
   }
-
   render() {
     return (
       <Container fluid className="main-section">
-        <h4>{this.props.title}</h4>
+        <h4 className="mb-3">{this.props.title}</h4>
         <div className="row-scroll">
-          <Row xs={1} sm={2} md={4} lg={6} className="mb-4 flex-nowrap g-2">
+          <Row xs={1} sm={2} md={3} lg={4} xl={5} xxl={6} className="mb-4 flex-nowrap g-2">
             {this.state.movies
               .filter((movie) => movie.Poster !== "N/A")
               .map((movie) => (
-                <Col key={movie.imdbID} className="mb-2 px-1">
-                  <Col key={movie.imdbID} className="mb-2 px-1">
+                <Col key={movie.imdbID} className="mb-2 px-1 movie-col">
+                  <div className="movie-card">
                     <img
                       className="img-fluid movie-poster"
                       src={movie.Poster}
@@ -44,7 +43,7 @@ class MoviesRow extends Component {
                         e.currentTarget.closest(".col").style.display = "none" // per immagini 404 non trovate non disponibili
                       }}
                     />
-                  </Col>
+                  </div>
                 </Col>
               ))}
           </Row>
