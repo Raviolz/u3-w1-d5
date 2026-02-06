@@ -8,7 +8,9 @@ function App() {
   return (
     <>
       <NetflixNav />
-      <MoviesRow />
+      <MoviesRow title="Harry Potter" query="Harry Potter" />
+      <MoviesRow title="Lord of the Rings" query="Lord of the Rings" />
+      <MoviesRow title="Game Of Thrones" query="Game Of Thrones" />
       <NetflixFooter />
     </>
   )

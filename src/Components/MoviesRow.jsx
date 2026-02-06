@@ -13,7 +13,7 @@ class MoviesRow extends Component {
   }
 
   getMovies = () => {
-    fetch(movieUrl + "&s=Harry Potter")
+    fetch(movieUrl + "&s=" + encodeURIComponent(this.props.query)) // encodeURIComponent per gestire spazi e caratteri speciali ---- SOLUZIONE SICUREZZA TROVATA ONLINE PER EVITARE PROBLEMI CON LA QUERY
       .then((response) => response.json())
       .then((data) => {
         console.log("Film recuperati:", data)
@@ -27,7 +27,7 @@ class MoviesRow extends Component {
   render() {
     return (
       <>
-        <h4>Trending Now</h4>
+        <h4>{this.props.title}</h4>
         <Row xs={1} sm={2} md={4} lg={6} className="mb-4">
           {this.state.movies.map((movie) => (
             <Col key={movie.imdbID} className="mb-2 text-center px-1">
