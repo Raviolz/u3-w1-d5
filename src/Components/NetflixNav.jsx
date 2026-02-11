@@ -3,21 +3,34 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
 
+import { Link, useLocation } from "react-router-dom"
+
 function NetflixNav() {
+  const location = useLocation()
   return (
     <Navbar expand="lg" variant="dark" className="netflix-navbar">
       <Container fluid>
-        <Navbar.Brand href="#">
-          <img src="./src/assets/logo.png" alt="logo" />
-        </Navbar.Brand>
+        <Link className="navbar-brand" to="/">
+          <img src="../src/assets/logo.png" alt="logo" />
+        </Link>
         <Navbar.Toggle aria-controls="Netflix Navbar" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">TV Shows</Nav.Link>
-            <Nav.Link href="#home">Movies</Nav.Link>
-            <Nav.Link href="#link">Recently Added</Nav.Link>
-            <Nav.Link href="#link">My List</Nav.Link>
+            <Link className="nav-link" to="#home">
+              Home
+            </Link>
+            <Link className={location.pathname === "/tvshows" ? "nav-link-active" : "nav-link"} to="/tvshows">
+              TV Shows
+            </Link>
+            <Link className={location.pathname === "/movies" ? "nav-link-active" : "nav-link"} to="/">
+              Movies
+            </Link>
+            <Link className={location.pathname === "/recentlyadded" ? "nav-link-active" : "nav-link"} to="/recentlyadded">
+              Recently Added
+            </Link>
+            <Link className={location.pathname === "/mylist" ? "nav-link-active" : "nav-link"} to="/mylist">
+              My List
+            </Link>
           </Nav>
           <div className="d-flex align-items-center text-white">
             <i className="bi bi-search mx-2 navicons"></i>

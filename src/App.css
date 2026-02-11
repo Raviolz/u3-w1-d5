@@ -120,3 +120,14 @@ button.footer-button:hover {
   /*Apparizione doppia freccia sotto foto avatar */
   display: none;
 }
+
+.nav-link,
+.nav-link-active {
+  color: white !important;
+  text-decoration: none;
+}
+
+.nav-link-active {
+  font-weight: 700;
+  /* oppure border-bottom: 2px solid white; */
+}
